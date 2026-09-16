@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uche Nnodim — Senior Data Engineer &amp; PostgreSQL Database Engineer</title>
+<meta name="description" content="Senior Data Engineer and PostgreSQL Database Engineer specializing in high-availability architecture, performance tuning, and cloud data infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #10141a;
+    --surface-1: #171d24;
+    --surface-2: #1e262f;
+    --border: #2a333d;
+    --border-strong: #3a4552;
+    --text-primary: #e8e6df;
+    --text-secondary: #a3adb8;
+    --text-muted: #6b7684;
+    --teal: #4fd1a8;
+    --teal-dim: #2d5f4f;
+    --amber: #e3b341;
+    --amber-dim: #6b5527;
+    --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--teal-dim); color: var(--text-primary); }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 88px 0 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .term-line {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 3px rgba(79,209,168,0.15);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+  }
+  .term-line .accent { color: var(--teal); }
+  h1 {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .role-line {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .hero-meta a { color: var(--text-secondary); }
+  .hero-meta a:hover { color: var(--teal); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .summary p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 66ch;
+    margin-bottom: 14px;
+  }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary strong { color: var(--text-primary); font-weight: 500; }
+
+  /* ---------- Experience ---------- */
+  .job {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .job:last-child { margin-bottom: 0; }
+  .job-index {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--border-strong);
+    padding-top: 3px;
+  }
+  .job-head { margin-bottom: 10px; }
+  .job-role {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .job-meta {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+  .job ul { list-style: none; }
+  .job li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 9px;
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+  .job li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--border-strong);
+  }
+  .job li:last-child { margin-bottom: 0; }
+  code, .inline-mono {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    color: var(--teal);
+    background: rgba(79,209,168,0.08);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+  }
+  .skill-group-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .skill-group-items {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* ---------- Certifications ---------- */
+  .cert-list { display: flex; flex-direction: column; gap: 16px; }
+  .cert {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--surface-2);
+  }
+  .cert:last-child { border-bottom: none; padding-bottom: 0; }
+  .cert-name { font-size: 15px; color: var(--text-primary); }
+  .cert-name a { color: var(--text-primary); }
+  .cert-name a:hover { color: var(--teal); }
+  .cert-issuer { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .cert-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--amber);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ---------- Projects ---------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    background: var(--surface-1);
+    transition: border-color 0.15s ease;
+  }
+  .project-card:hover { border-color: var(--teal-dim); }
+  .project-card a {
+    color: var(--text-primary);
+    font-size: 14.5px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .project-card a:hover { color: var(--teal); text-decoration: none; }
+  .project-card .repo-path {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ---------- Education ---------- */
+  .edu-item { margin-bottom: 14px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree { font-size: 15px; color: var(--text-primary); }
+  .edu-degree a { color: var(--text-primary); }
+  .edu-degree a:hover { color: var(--teal); }
+  .edu-school { font-size: 13.5px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 48px 0 64px;
+    text-align: left;
+  }
+  .footer-cta {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    max-width: 56ch;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 8px 14px;
+    border-radius: 5px;
+  }
+  .footer-links a:hover {
+    text-decoration: none;
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+  .footer-note {
+    margin-top: 32px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 620px) {
+    .hero { padding: 56px 0 40px; }
+    h1 { font-size: 30px; }
+    .role-line { font-size: 16px; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .job-index { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .cert { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="term-line">
+      <span class="dot" aria-hidden="true"></span>
+      <span>psql -h stormatics.tech -U uche_nnodim <span class="accent">-- connected</span></span>
+    </div>
+    <h1>Uche Nnodim</h1>
+    <p class="role-line">Senior Data Engineer &amp; PostgreSQL Database Engineer — HA Architecture, Performance Tuning, Cloud Data Infrastructure</p>
+    <div class="hero-meta">
+      <span>Abuja, Nigeria</span>
+      <a href="mailto:uchejudennodim@gmail.com">uchejudennodim@gmail.com</a>
+      <a href="https://linkedin.com/in/nnodimjude" target="_blank" rel="noopener">linkedin.com/in/nnodimjude</a>
+      <a href="https://github.com/Arshavin023" target="_blank" rel="noopener">github.com/Arshavin023</a>
+    </div>
+  </header>
+
+  <section class="summary" aria-labelledby="summary-h">
+    <h2 id="summary-h">summary</h2>
+    <p>I own the reliability of production data systems end-to-end — from architecture decisions to the page when something breaks. Over the past several years I've built and led <strong>high-availability PostgreSQL infrastructure</strong> and data pipelines for organizations where downtime or data loss isn't an option: PEPFAR-funded clinical data serving ~600 health facilities, financial reconciliation systems processing millions of transactions.</p>
+    <p>My work spans <strong>data warehouse design</strong> at scale, HA cluster architecture (Patroni, ETCD, HAProxy), disaster recovery strategy meeting defined RTO/RPO targets, and database access governance built on least-privilege principles. Currently a PostgreSQL Consultant at Stormatics, working across managed Postgres ecosystems including Supabase and Tiger Data.</p>
+  </section>
+
+  <section aria-labelledby="exp-h">
+    <h2 id="exp-h">experience</h2>
+
+    <div class="job">
+      <div class="job-index">01</div>
+      <div>
+        <div class="job-head">
+          <div class="job-role">PostgreSQL Consultant</div>
+          <div class="job-meta">Stormatics · Remote · Jul 2026 — Present</div>
+        </div>
+        <ul>
+          <li>Diagnosed and resolved critical WAL bloat (<code>1,700GB/day</code>) on a 192GB/48vCPU Supabase-hosted PostgreSQL instance via checkpoint and autovacuum tuning, cutting dead-tuple ratios to sub-2%.</li>
+          <li>Designed and executed a zero-downtime partitioning strategy for four high-volume tables, independently catching two data-integrity bugs before production impact.</li>
+          <li>Authored a production migration runbook for a phased logical-replication cutover from Patroni to EFM across payment-processing environments (POS, card, 75-database shared cluster) — including replica-identity strategy for tables without primary keys and a risk-based cutover sequence.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-index">02</div>
+      <div>
+        <div class="job-head">
+          <div class="job-role">Data and Cloud Engineer</div>
+          <div class="job-meta">The Palladium Group · Jan 2024 — Jun 2026</div>
+        </div>
+        <ul>
+          <li>Redesigned file ingestion/deletion workflows from sequential to multi-threaded, Dockerized services — cutting processing time ~80% (~5x speedup) for batches of 10,000+ files.</li>
+          <li>Designed and maintained a PostgreSQL data warehouse with LIST-partitioned tables across ~600 facilities, using <code>pg_repack</code> for bloat remediation and <code>pgcrypto</code> for column-level encryption.</li>
+          <li>Architected a Patroni-managed PostgreSQL HA cluster (1 primary + 2 replicas) with ETCD consensus and HAProxy read/write splitting for automated failover.</li>
+          <li>Designed database access governance: least-privilege analytics roles, PgBouncer connection pooling, SSH-key/security-group network restriction, and ongoing access log monitoring.</li>
+          <li>Designed backup and disaster recovery using pgBackRest with S3-based WAL archiving and PITR, meeting defined RTO/RPO targets.</li>
+          <li>Led migration from Layer3 Cloud to AWS, consolidating infrastructure and reducing overhead by 33%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-index">03</div>
+      <div>
+        <div class="job-head">
+          <div class="job-role">Data Engineering Consultant</div>
+          <div class="job-meta">United Bank for Africa (UBA) · Jul 2023 — Dec 2023</div>
+        </div>
+        <ul>
+          <li>Automated daily financial reconciliation with Python, processing 300MB+ CSV files (1M+ transaction records) — cutting reconciliation time from 5+ hours to minutes.</li>
+          <li>Optimized SQL queries on high-volume financial datasets, reducing execution time by 60%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-index">04</div>
+      <div>
+        <div class="job-head">
+          <div class="job-role">Data Analytics Engineer</div>
+          <div class="job-meta">Outsource Global, Abuja · Nov 2021 — Jun 2023</div>
+        </div>
+        <ul>
+          <li>Modeled database schemas and engineered read-optimized ETL pipelines using procedural SQL and event-driven triggers.</li>
+          <li>Built data pipelines powering real-time budget-allocation dashboards used by government agencies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-index">05</div>
+      <div>
+        <div class="job-head">
+          <div class="job-role">AI Data Specialist</div>
+          <div class="job-meta">TELUS International AI Data Solutions · Mar 2019 — Mar 2023</div>
+        </div>
+        <ul>
+          <li>Evaluated AI training datasets and model outputs for quality, accuracy, and safety; flagged anomalous data patterns feeding ML data-quality pipelines.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="skills-h">
+    <h2 id="skills-h">skills</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-label">programming</div>
+        <div class="skill-group-items">Python, SQL, Apache Spark, Linux Bash, Golang</div>
+      </div>
+      <div>
+        <div class="skill-group-label">cloud &amp; infra</div>
+        <div class="skill-group-items">AWS, Databricks, Snowflake, GCP, Docker, Kubernetes</div>
+      </div>
+      <div>
+        <div class="skill-group-label">data engineering</div>
+        <div class="skill-group-items">ETL/ELT, Data Modeling, Airflow, Kafka</div>
+      </div>
+      <div>
+        <div class="skill-group-label">ci/cd &amp; monitoring</div>
+        <div class="skill-group-items">Git, GitHub Actions, Prometheus, Grafana</div>
+      </div>
+      <div>
+        <div class="skill-group-label">databases</div>
+        <div class="skill-group-items">PostgreSQL (Patroni, ETCD, streaming replication, pgBackRest/PITR, HAProxy), MySQL, SQL Server</div>
+      </div>
+      <div>
+        <div class="skill-group-label">data governance</div>
+        <div class="skill-group-items">Data Validation, Access Control, PII Encryption</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="certs-h">
+    <h2 id="certs-h">certifications</h2>
+    <div class="cert-list">
+      <div class="cert">
+        <div>
+          <div class="cert-name"><a href="https://drive.google.com/file/d/1gSrV9C2vCQIKnSnkvri-x40-htiZbMHp/view?usp=sharing" target="_blank" rel="noopener">EDB Postgres AI High-Availability Essentials (v6)</a></div>
+          <div class="cert-issuer">EnterpriseDB</div>
+        </div>
+        <div class="cert-date">Aug 2026</div>
+      </div>
+      <div class="cert">
+        <div>
+          <div class="cert-name"><a href="https://drive.google.com/file/d/1i1Q-mafa6FjvJ-BYz80nBHW5EKIIA5o6/view?usp=drive_link" target="_blank" rel="noopener">EDB Postgres AI Database Advanced (v18)</a></div>
+          <div class="cert-issuer">EnterpriseDB</div>
+        </div>
+        <div class="cert-date">Aug 2026</div>
+      </div>
+      <div class="cert">
+        <div>
+          <div class="cert-name"><a href="https://www.credly.com/badges/5868aee9-fac7-43fe-9a9a-7bf594af226c/public_url" target="_blank" rel="noopener">Kubernetes and Cloud Native Associate</a></div>
+          <div class="cert-issuer">The Linux Foundation</div>
+        </div>
+        <div class="cert-date">May 2026</div>
+      </div>
+      <div class="cert">
+        <div>
+          <div class="cert-name"><a href="https://www.credly.com/badges/54f92371-fbc2-4e26-b79e-3e3598a63e93/public_url" target="_blank" rel="noopener">AWS Certified Data Engineer</a></div>
+          <div class="cert-issuer">Amazon Web Services</div>
+        </div>
+        <div class="cert-date">May 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="projects-h">
+    <h2 id="projects-h">portfolio projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <a href="https://github.com/Arshavin023/patroni-postgres-cluster" target="_blank" rel="noopener">Patroni PostgreSQL HA Cluster</a>
+        <div class="repo-path">Arshavin023/patroni-postgres-cluster</div>
+      </div>
+      <div class="project-card">
+        <a href="https://github.com/Arshavin023/parallel_data_ingestion" target="_blank" rel="noopener">Parallel Data Ingestion Pipeline</a>
+        <div class="repo-path">Arshavin023/parallel_data_ingestion</div>
+      </div>
+      <div class="project-card">
+        <a href="https://github.com/Arshavin023/parallel_report_processing" target="_blank" rel="noopener">Parallel Report Processing</a>
+        <div class="repo-path">Arshavin023/parallel_report_processing</div>
+      </div>
+      <div class="project-card">
+        <a href="https://github.com/Arshavin023/Microservice_API_architecture" target="_blank" rel="noopener">Microservice REST-API Architecture</a>
+        <div class="repo-path">Arshavin023/Microservice_API_architecture</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="edu-h">
+    <h2 id="edu-h">education</h2>
+    <div class="edu-item">
+      <div class="edu-degree"><a href="https://drive.google.com/file/d/1cYZIdAdQC1lyJMnpMbgm3KklCa5jYkZO/view?usp=sharing" target="_blank" rel="noopener">M.Sc. Software Engineering</a></div>
+      <div class="edu-school">Quantic School of Business &amp; Technology — Aug 2026</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree"><a href="https://drive.google.com/file/d/1_7KWARZydS0J9nYTkaV53FTFhRuy4o0K/view?usp=sharing" target="_blank" rel="noopener">M.Eng. Chemical Engineering</a></div>
+      <div class="edu-school">Federal University of Technology, Minna — Nov 2022</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree"><a href="https://drive.google.com/file/d/1dX7250Kmp807s6EYVu8vj_nPs6SzUKug/view?usp=sharing" target="_blank" rel="noopener">B.Eng. Chemical Engineering</a></div>
+      <div class="edu-school">Federal University of Technology, Minna — Jan 2015</div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-cta">Open to Senior Data Engineer, PostgreSQL Database Engineer, and related infrastructure roles — reach out if you're dealing with a database that needs to be faster, more available, or more resilient.</p>
+    <div class="footer-links">
+      <a href="mailto:uchejudennodim@gmail.com">email</a>
+      <a href="https://linkedin.com/in/nnodimjude" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://github.com/Arshavin023" target="_blank" rel="noopener">github</a>
+    </div>
+    <p class="footer-note">© 2026 Uche Nnodim · Abuja, Nigeria</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
